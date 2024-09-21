@@ -4,30 +4,24 @@ on:
   push:
     branches:
       - main
-
+      
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
 
       - name: Set environment variable
-        run: |
-          echo "API_KEY=${{ secrets.API_KEY }}" >> $GITHUB_ENV
-          node set-env.js  # Executa o script para substituir a chave
+        run: echo "API_KEY=${{ secrets.API_KEY }}" >> $GITHUB_ENV
 
-      - name: Build
-        run: npm run build --prod
-
-      - name: Deploy
-        run: |
-          # Comando para fazer o deploy, por exemplo, para Vercel ou Netlify
+      - name: Run the script
+        run: node set-env.js
