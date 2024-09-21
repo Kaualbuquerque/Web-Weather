@@ -9,7 +9,7 @@ import { environment } from "../environments/environment.prod"
 })
 export class WeatherService {
 
-  private apiUrl = 'http://api.weatherapi.com/v1/forecast.json';
+  private apiUrl = 'https://api.weatherapi.com/v1/forecast.json';
 
 
   constructor(private http: HttpClient) { }
