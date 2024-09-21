@@ -1,25 +1,13 @@
 <section class="banner">
 
-  <app-search class="search"></app-search>
+  <app-search (cityChange)="onCityChange($event)" class="search"></app-search>
 
-  <app-current class="current"></app-current>
+  <app-current class="current" [condition]="current.condition" [conditionIcon]="current.conditionIcon" [temp]="current.temp"></app-current>
 
   <section class="forecast">
     <ul>
-      <li>
-        <app-forecast></app-forecast>
-      </li>
-      <li>
-        <app-forecast></app-forecast>
-      </li>
-      <li>
-        <app-forecast></app-forecast>
-      </li>
-      <li>
-        <app-forecast></app-forecast>
-      </li>
-      <li>
-        <app-forecast></app-forecast>
+      <li *ngFor="let forecastItem of forecast">
+        <app-forecast [time]="forecastItem.time" [conditionIcon]="forecastItem.conditionIcon" [temp]="forecastItem.temp"></app-forecast>
       </li>
     </ul>
   </section>

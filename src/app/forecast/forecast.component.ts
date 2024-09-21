@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-forecast',
@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './forecast.component.css'
 })
 export class ForecastComponent {
-
+  @Input() time: any
+  @Input() conditionIcon: any
+  @Input() temp: any
 }
