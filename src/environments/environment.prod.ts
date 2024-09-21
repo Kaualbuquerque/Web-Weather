@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    apiKey: ''  // Será substituída durante o deploy
+    API_KEY: ''  // Será substituída durante o deploy
   };
   
