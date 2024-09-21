@@ -22,7 +22,7 @@ jobs:
 
       - name: Set environment variable
         run: |
-          echo "API_KEY=${{ secrets.API_KEY }}" >> $GITHUB_ENV
+          echo "apiKey=${{ secrets.apiKey }}" >> $GITHUB_ENV
           node set-env.js  # Executa o script para substituir a chave
 
       - name: Build
