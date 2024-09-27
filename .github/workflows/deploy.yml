@@ -23,4 +23,16 @@ jobs:
 
       - name: Replace API_KEY in environment.prod.ts
         run: |
-          sed -i "s/API_KEY/${{ secrets.API_KEY }}/" src/environments/environment.prod.ts  
+          # Lê o conteúdo atual do arquivo
+          echo "Antes da alteração:"
+          cat src/environments/environment.prod.ts
+          
+          # Substitui a API_KEY do arquivo pelo valor da API_KEY nos secrets do GitHub
+          sed -i "s/apiKey: '.*'/apiKey: '${{ secrets.API_KEY }}'/" src/environments/environment.prod.ts
+          
+          # Exibe o conteúdo do arquivo após a alteração
+          echo "Depois da alteração:"
+          cat src/environments/environment.prod.ts
+
+      - name: Build Angular App
+        run: npm run build -- --configuration production
